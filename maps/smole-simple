@@ -1,0 +1,43 @@
+OOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OO...............O........OO
+OO...............O........OO
+OO...............O........OO
+OO.......O.......O........OO
+OO.......OO......O........OO
+OO.......OOO..............OO
+OO.......OOOO.............OO
+OO.......OOO..............OO
+OO.......OO...............OO
+OO.......O................OO
+OO................OOOOOOOOOO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OOOOOOOOOOOOOOOO..........OO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OO........................OO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOOOOOOOOOOOOOOOOOOOOOOOO
+END
+END
+.=öppen terräng
+R=Rover (7 st)
+S=satellit (5 st)
+W=vatten 20%? (27 st)
+O=sten, 5%? chans att den innehåller Irridium (910 st => ca 45 Irridium)
+
+Ej i instruktionerna:
+* Antalen och chanserna ovan
+* X=datapaket (dyker upp i loggen att man ska åka över det för att plocka upp det?) (Jag minns inte hur vi sa om när och hur de skulle placeras ut)
+* K=Skelett
+* |_/\ = väggar
+* Dessa dyker upp i loggen vad de är första gången man ser dem?
+  Ska det vara så för alla terräng-objekt? De måste ju inte veta vad allt är och de lär sig ju att resetta sitt PIN rätt så tidigt och därefter kan de lära sig om loggen
