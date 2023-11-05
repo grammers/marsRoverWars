@@ -16,4 +16,4 @@ All comands returns a responce, success, failure errorcode, requested data.
 
 Example for moving forward: `move forward`
 
-## Weaponds definition
+## Weapons definition
