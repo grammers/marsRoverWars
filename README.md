@@ -15,3 +15,5 @@ The cross owner between mars rover, a FPS game and captain sonar.
 All comands returns a responce, success, failure errorcode, requested data.
 
 Example for moving forward: `move forward`
+
+## Weaponds definition
