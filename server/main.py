@@ -48,7 +48,7 @@ def com_loop(s):
                 try:
                     com = inp[4 + n]
                 except:
-                    print("to few arguments")
+                    print("to few arguments!")
                 if (com == 'f'):
                     rov.moveForeward()
                 elif (com == 'l'):
