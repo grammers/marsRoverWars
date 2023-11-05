@@ -10,9 +10,9 @@ def recive_message(addr, port):
 
     s.connect((addr , port))
     print(s.recv(1024).decode('utf-8'))
-    while(1):
-        st = input(": ")
-        s.send(st.encode('utf-8'))
+    #while(1):
+        #st = input(": ")
+        #s.send(st.encode('utf-8'))
 
 
         #for n in range(4):
@@ -23,14 +23,15 @@ def recive_message(addr, port):
             #    print(scan[:5])
             #    print(' ' + scan[5:])
             #    print("  R")
-        if st[:4] == "NWPN":
-            print("nwpn")
-            print(s.recv(1024).decode('utf-8'))
+        #if st[:4] == "NWPN":
+        #    print("nwpn")
+        #    print(s.recv(1024).decode('utf-8'))
                 
 
     while(1):
         pack = "6532"
         st = input(": ")
+        #print(st)
         if st == 'w':
             pack += "fsp "
         elif st == 'a':
@@ -41,8 +42,11 @@ def recive_message(addr, port):
             pack += "d   "
         elif st == 'L':
             pack += "L   "
-            
+
+        #print("pack")
+        #print(pack)
         s.send(pack.encode('utf-8'))
+        
 
 
         for n in range(4):

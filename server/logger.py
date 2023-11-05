@@ -14,6 +14,7 @@ class Logger:
             "Rover " + str(color) + " has started!", 0)
 
     def write(self, comand, messages, score):
+        return
         msg = str(datetime.now().time())
         msg += "-" + comand
         if score == 0:
@@ -26,6 +27,7 @@ class Logger:
         f.close()
     
     def pushed(self, color):
+        return
         msg = str(datetime.now().time())
         msg += "-\"" + "You have been pushed by rover " + str(color) + "\"\n"
 
@@ -34,6 +36,7 @@ class Logger:
         f.close()
 
     def readLog(self):
+        return
         log = []
         f = open(self.fileName, "r")
         for line in f:
@@ -42,6 +45,7 @@ class Logger:
         return log
         
     def drilled(self, color):
+        return
         msg = str(datetime.now().time())
         msg += "-\"Rover " + str(color) + " have drilled you\""
 
@@ -50,6 +54,7 @@ class Logger:
         f.close()
 
     def get(self):
+        return
         f = open(self.fileName, "r")
         content = f.read()
         f.close()

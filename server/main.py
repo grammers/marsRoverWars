@@ -10,7 +10,7 @@ import random
 import time
 import kryptera
 
-world = marsWorld.Mars("../LAN-map")
+world = marsWorld.Mars("../maps/LAN-map")
 
 rovg1 = rover.Rover(4, 99, 0, world)
 rovg2 = rover.Rover(6, 99, 1, world)
