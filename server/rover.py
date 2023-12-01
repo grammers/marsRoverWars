@@ -85,25 +85,21 @@ class Rover:
         self.world.worldLock.acquire()
         
         if self.direction == 'n':
-            print(self.direction)
             nw = -1
             ns = 1
             we = 0
             se = False
         elif self.direction == 's':
-            print(self.direction)
             nw = 1
             ns = 1
             we = 0
             se = True
         elif self.direction == 'e':
-            print(self.direction)
             nw = 1
             ns = 0
             we = 1
             se = False
         elif self.direction == 'w':
-            print(self.direction)
             nw = -1
             ns = 0
             we = 1

@@ -20,6 +20,8 @@ class Mars:
             print('|')
 
     def getPoint(self, x, y):
+        if (x < 0 or y < 0 or x >= len(self.worldMap[0]) or y >= len(self.worldMap)):
+            return 'O'
         return self.worldMap[y][x]
 
 

@@ -10,12 +10,13 @@ import random
 import time
 import kryptera
 
-world = marsWorld.Mars("../maps/LAN-map")
+#world = marsWorld.Mars("../maps/LAN-map")
+world = marsWorld.Mars("../maps/smole-simple")
 
-rovg1 = rover.Rover(4, 99, 0, world)
-rovg2 = rover.Rover(6, 99, 1, world)
-rovgl = rover.Rover(99, 99, 99, world)
-marshen = rover.Rover(49, 2, -1, world)
+rovg1 = rover.Rover(4, 23, 0, world)
+rovg2 = rover.Rover(6, 23, 1, world)
+rovgl = rover.Rover(8, 23, 99, world)
+marshen = rover.Rover(8, 2, -1, world)
 world.printworldmap()
 
 PIN1='6532'
