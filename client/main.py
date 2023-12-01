@@ -54,8 +54,9 @@ def recive_message(addr, port):
                 print(s.recv(1024).decode('utf-8'))
             elif pack[4 + n] == 's':
                 scan = s.recv(1024).decode('utf-8')
-                print(scan[:5])
-                print(' ' + scan[5:])
+                vscan = scan[7]+scan[5]+scan[3]+scan[4]+scan[6]+scan[2]+scan[0]+scan[0]
+                print(scan[3:])
+                print(' ' + scan[:3])
                 print("  R")
             elif pack[4 + n] == 'L':
                 scan = str(s.recv(1024).decode('utf-8'))

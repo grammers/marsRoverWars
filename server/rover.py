@@ -22,6 +22,8 @@ class Rover:
         self.under = self.world.getPoint(self.x, self.y)
         self.world.putOnWorldMap(self.x, self.y, self)
         self.score = 0
+
+        self.rover_scan_range = 2
         
         self.lastPush = self.rid
         self.lastDrill = self.rid
@@ -63,79 +65,62 @@ class Rover:
 #    R       84    54321    26
 #             5             1
 
+#  4
+# 15
+#R26
+# 37
+#  8
+
+
+    def scanReader(self, ns, ew):
+        return str(self.world.getPoint(self.x + ns, self.y + ew))
+
+                        
+                
+
     def getScan(self):
         ret = ""
         self.rovLock.acquire()
         time.sleep(0.5)
         self.world.worldLock.acquire()
+        
         if self.direction == 'n':
-            ret += str(self.world.getPoint(self.x - 2, self.y - 2)) #1
-            self.scanScore(self.x - 2 , self.y - 2)
-            ret += str(self.world.getPoint(self.x - 1, self.y - 2)) #2
-            self.scanScore(self.x - 1 , self.y - 2)
-            ret += str(self.world.getPoint(self.x - 0, self.y - 2)) #3
-            self.scanScore(self.x - 0 , self.y - 2)
-            ret += str(self.world.getPoint(self.x + 1, self.y - 2)) #4
-            self.scanScore(self.x + 1 , self.y - 2)
-            ret += str(self.world.getPoint(self.x + 2, self.y - 2)) #5
-            self.scanScore(self.x + 2 , self.y - 2)
-            ret += str(self.world.getPoint(self.x - 1, self.y - 1)) #6
-            self.scanScore(self.x - 1 , self.y - 1)
-            ret += str(self.world.getPoint(self.x - 0, self.y - 1)) #7
-            self.scanScore(self.x - 0 , self.y - 1)
-            ret += str(self.world.getPoint(self.x + 1, self.y - 1)) #8
-            self.scanScore(self.x + 1 , self.y - 1)
+            print(self.direction)
+            nw = -1
+            ns = 1
+            we = 0
+            se = False
         elif self.direction == 's':
-            ret += str(self.world.getPoint(self.x + 2, self.y + 2)) #1
-            self.scanScore(self.x + 2 , self.y + 2)
-            ret += str(self.world.getPoint(self.x + 1, self.y + 2)) #2
-            self.scanScore(self.x + 1 , self.y + 2)
-            ret += str(self.world.getPoint(self.x + 0, self.y + 2)) #3
-            self.scanScore(self.x + 0 , self.y + 2)
-            ret += str(self.world.getPoint(self.x - 1, self.y + 2)) #4
-            self.scanScore(self.x - 1 , self.y + 2)
-            ret += str(self.world.getPoint(self.x - 2, self.y + 2)) #5
-            self.scanScore(self.x - 2 , self.y + 2)
-            ret += str(self.world.getPoint(self.x + 1, self.y + 1)) #6
-            self.scanScore(self.x + 1 , self.y + 2)
-            ret += str(self.world.getPoint(self.x + 0, self.y + 1)) #7
-            self.scanScore(self.x + 0 , self.y + 2)
-            ret += str(self.world.getPoint(self.x - 1, self.y + 1)) #8
-            self.scanScore(self.x - 1 , self.y + 2)
+            print(self.direction)
+            nw = 1
+            ns = 1
+            we = 0
+            se = True
         elif self.direction == 'e':
-            ret += str(self.world.getPoint(self.x + 2, self.y - 2)) #1
-            self.scanScore(self.x + 2 , self.y - 2)
-            ret += str(self.world.getPoint(self.x + 2, self.y - 1)) #2
-            self.scanScore(self.x + 2 , self.y - 1)
-            ret += str(self.world.getPoint(self.x + 2, self.y - 0)) #3
-            self.scanScore(self.x + 2 , self.y - 0)
-            ret += str(self.world.getPoint(self.x + 2, self.y + 1)) #4
-            self.scanScore(self.x + 2 , self.y + 1)
-            ret += str(self.world.getPoint(self.x + 2, self.y + 2)) #5
-            self.scanScore(self.x + 2 , self.y + 2)
-            ret += str(self.world.getPoint(self.x + 1, self.y - 1)) #6
-            self.scanScore(self.x + 1 , self.y - 1)
-            ret += str(self.world.getPoint(self.x + 1, self.y + 0)) #7
-            self.scanScore(self.x + 1 , self.y + 0)
-            ret += str(self.world.getPoint(self.x + 1, self.y + 1)) #8
-            self.scanScore(self.x + 1 , self.y + 1)
+            print(self.direction)
+            nw = 1
+            ns = 0
+            we = 1
+            se = False
         elif self.direction == 'w':
-            ret += str(self.world.getPoint(self.x - 2, self.y + 2)) #1
-            self.scanScore(self.x - 2 , self.y + 2)
-            ret += str(self.world.getPoint(self.x - 2, self.y + 1)) #2
-            self.scanScore(self.x - 2 , self.y + 1)
-            ret += str(self.world.getPoint(self.x - 2, self.y + 0)) #3
-            self.scanScore(self.x - 2 , self.y + 0)
-            ret += str(self.world.getPoint(self.x - 2, self.y - 1)) #4
-            self.scanScore(self.x - 2 , self.y - 1)
-            ret += str(self.world.getPoint(self.x - 2, self.y - 2)) #5
-            self.scanScore(self.x - 2 , self.y - 2)
-            ret += str(self.world.getPoint(self.x - 1, self.y + 1)) #6
-            self.scanScore(self.x - 1 , self.y + 1)
-            ret += str(self.world.getPoint(self.x - 1, self.y + 0)) #7
-            self.scanScore(self.x - 1 , self.y + 0)
-            ret += str(self.world.getPoint(self.x - 1, self.y - 1)) #8
-            self.scanScore(self.x - 1 , self.y - 1)
+            print(self.direction)
+            nw = -1
+            ns = 0
+            we = 1
+            se = True
+
+        
+        for i in range(1,self.rover_scan_range + 1):
+            scan = str(self.world.getPoint(self.x + i*nw*we, self.y + i*nw*ns))
+            for j in range(1, i+1):
+                scan += str(self.world.getPoint(self.x + j*ns + i*nw*we, self.y + j*we + i*nw*ns))
+                scan = str(self.world.getPoint(self.x - j*ns + i*nw*we, self.y - j*we + i*nw*ns)) + scan
+            if se:
+                ret += scan[::-1]
+            else:
+                ret += scan
+
+
 
         self.world.worldLock.release()
         self.rovLock.release()
